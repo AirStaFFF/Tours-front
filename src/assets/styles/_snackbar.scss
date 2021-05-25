@@ -1,0 +1,91 @@
+$notice-messages-success: #4ed03c;
+$notice-messages-error: #ff2f2f;
+$notice-messages-info: #ff7b2f;
+$white: #fff;
+
+.notice-messages-list-enter {
+    opacity: 0;
+    transform: translateX(80px);
+}
+
+.notice-messages-list-leave-active {
+    position: absolute;
+    left: 0;
+    transform: translateY(60px);
+}
+
+.notice-messages-list-leave-to  {
+    opacity: 0;
+}
+
+.notice-messages {
+    position: fixed;
+    right: 20px;
+    bottom: 100px;
+    width: 300px;
+    z-index: 99999999999;
+    &__item {
+        transition: all 1s;
+        display: inline-block;
+        margin-bottom: 10px;
+        width: 100%;
+        padding: 25px 0px 25px 20px;
+        border-radius: 4px;
+        &-success {
+            background: $notice-messages-success;
+        }
+        &-info {
+            background: $notice-messages-error;
+        }
+        &-error {
+            background: $notice-messages-info;
+        }
+        &-inside {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+
+            &__icon {
+                width: 52px;
+                min-width: 34px;
+
+                &_success {
+                    background: url('~@/assets/img/svg/snack_success.svg') no-repeat;
+                    width: 34px;
+                    height: 34px;
+                }
+
+                &_info {
+                    background: url('~@/assets/img/svg/snack_info.svg') no-repeat;
+                    width: 34px;
+                    height: 34px;
+                }
+
+                &_error {
+                    background: url('~@/assets/img/svg/snack_error.svg') no-repeat;
+                    width: 34px;
+                    height: 34px;
+                }
+            }
+            &__text {
+                flex-grow: 2;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                line-height: 1.2;
+                // font-family: $font-family-base;
+                margin: 0 20px;
+                font-size: 16px;
+                font-weight: 500;
+                color: $white;
+            }
+            &__close {
+                color: $white !important;
+                background: transparent;
+                border: none;
+            }
+        }
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
